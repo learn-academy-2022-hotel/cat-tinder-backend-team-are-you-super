@@ -6,7 +6,11 @@ class HerosController < ApplicationController
       
     def create
         hero = Hero.create(hero_params)
-        render json: hero
+        if hero.valid?
+            render json: hero
+        else
+            render json: hero.errors, status: 422
+        end
     end
       
     def update
@@ -15,7 +19,8 @@ class HerosController < ApplicationController
         if hero.vaild?
             render json: hero
         else 
-            render json: hero.errors
+            render json: hero.errors, status: 422
+        end
     end
       
     def destroy
@@ -24,6 +29,7 @@ class HerosController < ApplicationController
             render json: hero
         else 
             render json: hero.errors
+        end
     end
 
     private
