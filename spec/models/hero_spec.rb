@@ -49,6 +49,7 @@ RSpec.describe Hero, type: :model do
 end
 
 # ATTEMPTED VALIDATION STRETCH GOALS:
+
   # describe "PATCH /update" do
   #   it "updates a hero" do
   #     hero_params = {
